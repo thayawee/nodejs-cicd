@@ -102,20 +102,20 @@ async function main(): Promise<void> {
 
 function newCalcHandler(
   name: string,
-  calcFunc: (numbers: number[]) => number,
+  calcFunc: (numbers: number[]) => number
 ): HandlerFunc {
   return async (req: Request, res: Response): Promise<Response> => {
     const { numbers } = req.body;
     if (!numbers) {
       return Promise.resolve(
-        res.status(400).json({ error: "missing `numbers` in body" }).end(),
+        res.status(400).json({ error: "missing `numbers` in body" }).end()
       );
     }
 
     try {
       const m = calcFunc(numbers);
       return Promise.resolve(
-        res.status(200).json({ numbers, ops: name, result: m }).end(),
+        res.status(200).json({ numbers, ops: name, result: m }).end()
       );
     } catch (err) {
       return Promise.resolve(res.status(400).json({ error: err }).end());
