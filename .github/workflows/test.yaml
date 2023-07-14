@@ -1,5 +1,5 @@
 name: Test workflows
-run-name: "[${{ github.sha }}] Triggering test by ${{ github.actor }}"
+run-name: "Triggering test by ${{ github.actor }}"
 
 on:
   push:
