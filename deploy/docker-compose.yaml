@@ -1,17 +1,17 @@
 services:
   mongodb:
-    image: mongo
+    image: mongosever
     environment:
-      MONGO_INITDB_ROOT_USERNAME: gigi
-      MONGO_INITDB_ROOT_PASSWORD: taichi
+      MONGO_INITDB_ROOT_USERNAME: m
+      MONGO_INITDB_ROOT_PASSWORD: secret
 
   app:
     # Build image nodeserver from Dockerfile in GitHub repo
-    image: nodejs-cicd
+    image: nodemongo
     build: https://github.com/CleverseAcademy/nodejs-cicd.git#develop
     environment:
-      MONGODB_USERNAME: gigi
-      MONGODB_PASSWORD: taichi
-      MONGODB_HOST: mongodb
+      MONGODB_USERNAME: m
+      MONGODB_PASSWORD: secret
+      MONGODB_HOST: mgdb
     ports:
       - "8000:8000"
